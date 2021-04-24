@@ -49,11 +49,11 @@ morse = {
 }
 
 # Declare length of the timings
-dit_length = 0.5
-dash_length = 1
+dit_length = 0.25
+dash_length = 0.75
 space_length = 1.5
 
-# function to get morse 
+# function to get morse code from letter
 def get_morse(morse, key):
     key = key.lower()
     if key in morse.keys():
@@ -68,11 +68,11 @@ def get_morse(morse, key):
 def led_morse(letter):
     for morse_key in letter:
         if morse_key == ".":
-            led.blink(on_time=0.25,off_time=0.25,n=1,background=False)
+            led.blink(on_time=dit_length,off_time=dit_length,n=1,background=False)
         if morse_key == "-":
-            led.blink(on_time=0.75,off_time=0.25,n=1,background=False)
+            led.blink(on_time=dash_length,off_time=dit_length,n=1,background=False)
         if morse_key == "===":
-            sleep(1.5)
+            sleep(space_length)
     
 def main():
     # Read User input
