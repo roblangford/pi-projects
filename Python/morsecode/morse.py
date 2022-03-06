@@ -2,6 +2,7 @@
 
 
 #import gpiozero from led
+import sys
 from gpiozero import LED
 from time import sleep
 
@@ -91,19 +92,22 @@ def led_morse(letter):
         if morse_key == "===":
             sleep(space_length)
     
-def main():
+def main(userInput):
     """
     Program converts a string of text input to morse code and then outputs via an led on a raspberry pi project board via GPIO.
     See README on repo for details on the hardware used.
 
     """
-    # Read User input
-    userInput = input("Input Text:")
-
     # Iterate over input
     for ltr in userInput:
         morse_letter = get_morse(morse, ltr)
         led_morse(morse_letter)
 
 if __name__ ==  "__main__":
-    main()
+    try:
+        # checks for 1st input argument and assigns value to userInput
+        userInput = sys.argv[1]
+    except IndexError:
+        # prompts for user input if no argument string passed from cli
+        userInput = input("Input Text: ")
+    main(userInput)
