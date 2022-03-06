@@ -25,4 +25,4 @@ The returned value from the morse code string is then sent to the pi project boa
 During development I output the text and morse key side by side as they are being output to the led. 
 I've also expanded the project to take an input argument string and perform the same execution.
 
-![Morse-Project-CLI-example](https://github.com/roblangford/pi-projects/images/pi-projects-morse.png)
+![Morse-Project-CLI-example](../../images/pi-projects-morse.png)
